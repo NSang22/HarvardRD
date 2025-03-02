@@ -14,6 +14,7 @@ function App() {
         </p>
         <SymptomForm />
         
+      <div style={{ marginTop: '30px' }}>
         <a
           className="App-link"
           href="https://www.harvard-rarediseases.org/"
@@ -22,6 +23,7 @@ function App() {
         >
           Rare Diseases
         </a>
+      </div>
       </header>
     </div>
   );

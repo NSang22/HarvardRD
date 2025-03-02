@@ -77,7 +77,7 @@ def normalize_symptoms(symptoms):
     """Use Groq API to normalize a list of symptoms to HPO terms."""
     normalized_terms = {}
     for symptom in symptoms:
-        prompt = f"Given the user symptom description: '{symptom}', return the closest matching Human Phenotype Ontology (HPO) term. Only provide the term name and nothing else."
+        prompt = f"Given the user symptom description: '{symptom}', return the closest matching Human Phenotype Ontology (HPO) term and its HPO code. Provide the term name and the HPO code in the format 'term (HPO:code)' Provide ABSOLUTELY NO OTHER INFORMATION OR TEXT BESIDES THE TERM AND CODE."
         try:
             response = client.chat.completions.create(
                 model="llama3-8b-8192",  # Or other supported models
@@ -87,10 +87,13 @@ def normalize_symptoms(symptoms):
                 ],
                 temperature=0.3
             )
-            normalized_terms[symptom] = response.choices[0].message.content.strip()
-        except Exception as e:
+            term_and_code = response.choices[0].message.content.strip()
+            term, code = term_and_code.rsplit(' (HPO:', 1)
+            code = 'HPO:' + code.rstrip(')')
+            normalized_terms[symptom] = {"term": term.strip(), "code": code.strip()}
+        except Exception as e:  
             print(f"Error: {e}")
-            normalized_terms[symptom] = "Unknown Symptom"
+            normalized_terms[symptom] = {"term": "Unknown Symptom", "code": "Unknown Code"}
     return normalized_terms
 
 # Example usage

@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #ADD8E6;
+  background-color: #004b97;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
 }
 
 .App-link {
-  color: #004225;
+  color: #19b873;
 }
 
 @keyframes App-logo-spin {
@@ -38,4 +38,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+label {
+  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+  font-size: 16px; /* Adjust size */
+  font-weight: bold; /* Make it bold if needed */
+  color: #aba1a1; /* Change text color */
+}
+
+button {
+  margin-left:1%;
+  margin-top: 20px;
+  font-family: 'Courier New', monospace; /* Different font for button */
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4CAF50; /* Green button */
+  color: white; 
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049; /* Slightly darker on hover */
 }

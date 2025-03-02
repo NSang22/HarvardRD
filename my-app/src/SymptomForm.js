@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 const SymptomForm = () => {
     const [symptoms, setSymptoms] = useState('');
@@ -44,7 +45,13 @@ const SymptomForm = () => {
       {results && (
         <div id="results">
           <h2>Results</h2>
-          <pre>{JSON.stringify(results, null, 2)}</pre>
+          <ul>
+            {Object.entries(results.normalized_hpo_terms).map(([symptom, { term, code }]) => (
+              <li key={symptom}>
+                <strong>{symptom}</strong>: {term} ({code})
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
