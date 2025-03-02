@@ -1,5 +1,8 @@
 import dna from './dna.png';
 import './App.css';
+import SymptomForm from './SymptomForm';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -7,8 +10,9 @@ function App() {
       <header className="App-header">
         <img src={dna} className="App-logo" alt="logo" />
         <p>
-          <code>GoonApp</code>
+          <code>StickyGenome</code>
         </p>
+        <SymptomForm />
         <a
           className="App-link"
           href="https://www.harvard-rarediseases.org/"
@@ -23,3 +27,4 @@ function App() {
 }
 
 export default App;
+
