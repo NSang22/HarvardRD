@@ -8,7 +8,6 @@ app = FastAPI()
 class SymptomRequest(BaseModel):
     symptom: str
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.post("/normalize")
 async def normalize_symptoms(data: SymptomRequest):
