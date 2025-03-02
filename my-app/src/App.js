@@ -13,6 +13,7 @@ function App() {
           <code>StickyGenome</code>
         </p>
         <SymptomForm />
+        
         <a
           className="App-link"
           href="https://www.harvard-rarediseases.org/"

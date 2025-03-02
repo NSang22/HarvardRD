@@ -94,5 +94,5 @@ def normalize_symptoms(symptoms):
     return normalized_terms
 
 # Example usage
-if __name__ == "__main__":
-    print(normalize_symptoms("breath shortness"))
+# if __name__ == "__main__":
+#     print(normalize_symptoms(["breath shortness", "headache", "cough", "sore throat", "nausea"])) 

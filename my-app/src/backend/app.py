@@ -41,9 +41,23 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from hpo_normalizer import normalize_symptoms 
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn # Import function from your updated script
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",  # React app
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 class SymptomRequest(BaseModel):
     symptoms: list[str]
